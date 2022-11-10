@@ -55,7 +55,7 @@ button:hover {
 .about__sun-image:hover {
   opacity: 0.9;
   /* transform: rotate(10deg); */
-  transform: scale(1.5);
+  transform: scale(1.7);
 }
 .about {
   display: flex;
