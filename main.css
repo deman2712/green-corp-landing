@@ -9,6 +9,11 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  opacity: 95%;
+  z-index: 1;
 }
 header__logo {
   height: 30px;
@@ -23,6 +28,9 @@ header a {
   font-weight: 600;
   margin-right: 25px;
 }
+.angle-right {
+  text-align: center;
+}
 button {
   font-family: "Raleway", sans—serif;
   font-size: 15px;
@@ -33,29 +41,32 @@ button {
   cursor: pointer;
   box-shadow: 0 16px 36px rgb(52 213 68 / 22%);
   padding: 15px;
-  transition: background-color 0.3s ease-in;
-  /* transition: margin-right 1s ease-in; */
 }
 button:hover {
   background-color: #f6980c;
   box-shadow: 0 16px 36px rgba(246 152 12 / 20%);
+  transition: background-color 0.2s ease-in;
 }
 .about__image {
   width: 500px;
+  transition-duration: 0.5s;
 }
-
+.about__image:hover {
+  transform: scale(1.2);
+}
 .about__sun-image {
-  display: flex;
-  align-items: top;
   width: 100px;
   height: 100px;
-  /* transition: margin-right 1s ease; */
-  transition-duration: 1s;
+  animation: rotation 10s linear infinite;
+  position: absolute;
 }
-.about__sun-image:hover {
-  opacity: 0.9;
-  /* transform: rotate(10deg); */
-  transform: scale(1.7);
+@keyframes rotation {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 .about {
   display: flex;
@@ -63,6 +74,9 @@ button:hover {
   align-items: center;
   padding-top: 115px;
   padding-bottom: 115px;
+  background: url("img/back.png") no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .about h1 {
   font-size: 70px;
@@ -82,23 +96,19 @@ button:hover {
 .about__info {
   max-width: 550px;
 }
-.about {
-  background: url("img/back.png") no-repeat;
-  background-position: center;
-  background-size: cover;
-}
+
 .form__container {
   width: 550px;
 }
 .form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #1d263a;
   color: #fff;
   padding-top: 115px;
   padding-bottom: 115px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
 }
 .form h1 {
   font-size: 48px;
@@ -120,19 +130,18 @@ button:hover {
 .form label {
   font-size: 18px;
   font-weight: 600;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 .form input,
 .form select {
+  border: none;
+  border-radius: 15px;
+  padding: 0 20px;
+  outline: none;
   font-size: 18px;
   color: #213053;
   height: 60px;
-  padding: 0 20px 0 20px;
-  border-radius: 15px;
-  border: none;
-  outline: none;
   appearance: none;
-  background-color: #fff;
 }
 .form__submit {
   font-size: 18px;
@@ -140,14 +149,13 @@ button:hover {
   margin-top: 40px;
 }
 footer {
-  padding: 90px 20px 90px 20px;
+  padding: 90px 20px;
   font-size: 16px;
   font-weight: 600;
 }
 .footer__container {
   display: flex;
   justify-content: center;
-  align-items: top;
 }
 .footer__copyright {
   text-align: center;
@@ -155,10 +163,12 @@ footer {
   opacity: 0.5;
 }
 .footer__group {
-  padding-right: 80px;
-  margin-bottom: 30px;
-  font-size: 16px;
+  margin-right: 80px;
+}
+footer h3 {
   opacity: 0.7;
+  font-size: 16px;
+  margin-bottom: 30px;
 }
 .footer__links {
   display: flex;
@@ -166,4 +176,65 @@ footer {
 }
 .footer__links a {
   margin-bottom: 15px;
+}
+@media (max-width: 1024px) {
+  .about {
+    padding: 115px 20px;
+  }
+  .about h1 {
+    font-size: 36px;
+    line-height: 40px;
+  }
+  .about__image {
+    width: 280px;
+  }
+  .about__sun-image {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+@media (max-width: 720px) {
+  header {
+    padding: 10px;
+  }
+  header__logo {
+    height: 20px;
+  }
+  header a {
+    margin-right: 10px;
+  }
+  .about {
+    flex-direction: column-reverse;
+    padding: 50px 10px;
+  }
+  .about h1 {
+    font-size: 36px;
+    line-height: 40px;
+  }
+  .about__image {
+    width: 280px;
+  }
+  .about__sun-image {
+    width: 75px;
+    height: 75px;
+  }
+  .form {
+    padding: 50px 10px;
+  }
+  .form h1 {
+    font-size: 36px;
+  }
+  footer {
+    padding: 50px 10px;
+  }
+  .footer__container {
+    flex-direction: column;
+  }
+}
+.animate__animated.animate__fadeInLeft {
+  --animate-duration: 2s;
+}
+.animate__animated.animate__fadeInRight {
+    --animate-duration: 2.1s;
 }
